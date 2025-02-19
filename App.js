@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import { ThemeProvider } from "styled-components";
+import {
+  useFonts as useNunito,
+  Nunito_400Regular,
+} from "@expo-google-fonts/nunito";
+import {
+  useFonts as useRoboto,
+  RobotoMono_700Bold,
+} from "@expo-google-fonts/roboto-mono";
+import { theme } from "./src/theme";
 
 export default function App() {
+  const [nunitoLoaded] = useNunito({
+    Nunito_400Regular,
+  });
+  const [robotoLoaded] = useRoboto({
+    RobotoMono_700Bold,
+  });
+  if (!nunitoLoaded || !robotoLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <ThemeProvider theme={theme} />
+      <ExpoStatusBar style="auto" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
