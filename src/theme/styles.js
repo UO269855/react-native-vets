@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import { colors } from "./colors";
 import { sizes } from "./sizes";
 import { TouchableOpacity } from "react-native";
+import { WebView } from "react-native-webview";
 
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
@@ -57,4 +58,20 @@ export const FavouriteButton = styled(TouchableOpacity)`
   top: ${(props) => props.theme.space[4]};
   right: ${(props) => props.theme.space[4]};
   z-index: 1;
+`;
+
+export const CompactWebview = styled(WebView)`
+  width: 110px;
+  height: 110px;
+  border-radius: 5px;
+`;
+export const FavouritesWrapper = styled.View`
+  padding: ${(props) => props.theme.space[2]};
+`;
+export const Item = styled.View`
+  width: ${(props) => props.theme.space[6]};
+  height: ${(props) => props.theme.space[6]};
+  padding: ${(props) => props.theme.space[1]};
+  margin-right: ${(props) => props.theme.space[1]};
+  align-items: center;
 `;
