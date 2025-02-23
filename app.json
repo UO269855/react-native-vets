@@ -51,7 +51,7 @@
       }
     },
     "runtimeVersion": {
-      "policy": "exposdk:52.0.25"
+      "policy": "1.0.0"
     },
     "updates": {
       "url": "https://u.expo.dev/944b22b4-9cf0-446d-9809-4c751e938dbe"
