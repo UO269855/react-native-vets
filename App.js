@@ -10,6 +10,7 @@ import {
   useFonts as useRoboto,
   RobotoMono_700Bold,
 } from "@expo-google-fonts/roboto-mono";
+import { Navigator } from "./src/navigators";
 import { theme } from "./src/theme";
 
 export default function App() {
@@ -24,7 +25,9 @@ export default function App() {
   }
   return (
     <>
-      <ThemeProvider theme={theme} />
+      <ThemeProvider theme={theme}>
+        <Navigator />
+      </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
   );
