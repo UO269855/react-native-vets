@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TouchableOpacity, FlatList } from "react-native";
 import { FavouritesContext } from "../data/favourites.context";
-import { VetInfoCardComponent } from "../components/vet-info-card.component";
+import { VetInfoCardComponent } from "../components/vets-info-card.component";
 import { Text } from "../theme/typography";
 import { NoFavouritesYet } from "../theme/styles";
 export const FavouritesScreen = ({ navigation }) => {

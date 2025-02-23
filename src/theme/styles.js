@@ -1,9 +1,15 @@
-import { ActivityIndicator, Avatar, Button, List } from "react-native-paper";
+import {
+  ActivityIndicator,
+  Avatar,
+  Button,
+  List,
+  TextInput,
+} from "react-native-paper";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { colors } from "./colors";
 import { sizes } from "./sizes";
-import { TouchableOpacity } from "react-native";
+import { ImageBackground, TouchableOpacity, Image } from "react-native";
 import { WebView } from "react-native-webview";
 import MapView from "react-native-maps";
 import { CameraView } from "expo-camera";
@@ -124,4 +130,47 @@ export const CameraContainer = styled(TouchableOpacity)`
 export const NoFavouritesYet = styled.View`
   align-items: center;
   justify-content: center;
+`;
+
+export const AccountBackground = styled(ImageBackground).attrs({
+  source: require("../../assets/background.jpg"),
+})`
+  flex: 1;
+`;
+export const AccountBackgroundFilter = styled.View`
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  align-items: center;
+`;
+export const AccountContainer = styled.View`
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: ${(props) => props.theme.space[4]};
+  margin: ${(props) => props.theme.space[3]};
+`;
+export const AnimatedImage = styled(Image).attrs({
+  source: require("../../assets/animation.gif"),
+})`
+  width: ${(props) => props.theme.space[9]};
+  height: ${(props) => props.theme.space[7]};
+  margin-bottom: ${(props) => props.theme.space[4]};
+`;
+export const AuthButton = styled(Button).attrs({
+  buttonColor: colors.button,
+})`
+  width: ${(props) => props.theme.space[8]};
+  padding: ${(props) => props.theme.space[2]};
+  margin: ${(props) => props.theme.space[2]};
+`;
+export const Title = styled.Text`
+  font-size: ${(props) => props.theme.sizes[2]};
+  font-weight: bold;
+`;
+
+export const AuthInput = styled(TextInput)`
+  width: ${(props) => props.theme.space[8]};
+  margin: ${(props) => props.theme.space[2]};
+`;
+export const ErrorContainer = styled.View`
+  height: ${(props) => props.theme.space[3]};
 `;
