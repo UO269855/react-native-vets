@@ -1,4 +1,4 @@
-import { ActivityIndicator } from "react-native-paper";
+import { ActivityIndicator, Button } from "react-native-paper";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { colors } from "./colors";
@@ -74,4 +74,21 @@ export const Item = styled.View`
   padding: ${(props) => props.theme.space[1]};
   margin-right: ${(props) => props.theme.space[1]};
   align-items: center;
+`;
+
+export const ButtonsSpace = styled.View`
+  justify-content: center;
+  flex-direction: row;
+  padding: ${(props) => props.theme.space[1]};
+`;
+export const ContactButton = styled(Button).attrs({
+  buttonColor: colors.button,
+  textColor: colors.textButton,
+})`
+  padding: ${(props) => props.theme.space[0]};
+  margin: ${(props) => props.theme.space[1]};
+`;
+
+export const SearchContainer = styled.View`
+  padding: ${(props) => props.theme.space[3]};
 `;

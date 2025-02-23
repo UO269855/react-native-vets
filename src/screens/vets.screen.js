@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import { VetsContext } from "../services/vets.context";
 import { VetInfoCardComponent } from "../components/vets-info-card.component";
@@ -6,8 +6,11 @@ import { LoadingContainer, Loading } from "../theme/styles";
 import { FadeInAnimation } from "../animations/fade-in.animation";
 import { FavouritesBarComponent } from "../components/favourites-bar.component";
 import { FavouritesContext } from "../data/favourites.context";
+import { SearchComponent } from "../components/search.component";
 
 export const VetsScreen = ({ navigation }) => {
+  const [isToggled, setIsToggled] = useState(false);
+
   const vetsContext = useContext(VetsContext);
   const favouritesContext = useContext(FavouritesContext);
 
@@ -18,10 +21,17 @@ export const VetsScreen = ({ navigation }) => {
           <Loading />
         </LoadingContainer>
       )}
-      <FavouritesBarComponent
-        favourites={favouritesContext.favourites}
-        onNavigate={navigation.navigate}
+      <SearchComponent
+        from="vets"
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
       />
+      {isToggled && (
+        <FavouritesBarComponent
+          favourites={favouritesContext.favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <FlatList
         data={vetsContext.vets}
         renderItem={({ item }) => {
