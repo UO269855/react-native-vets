@@ -13,7 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.uo269855.reactnativevets",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +30,20 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0",
+            "kotlinVersion": "1.9.25"
+          },
+          "ios": {
+            "deploymentTarget": "15.1"
+          }
+        }
+      ]
     ],
     "extra": {
       "eas": {
@@ -34,7 +51,7 @@
       }
     },
     "runtimeVersion": {
-      "policy": "appVersion"
+      "policy": "1.0.0"
     },
     "updates": {
       "url": "https://u.expo.dev/944b22b4-9cf0-446d-9809-4c751e938dbe"
