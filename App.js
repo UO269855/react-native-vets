@@ -10,6 +10,7 @@ import {
   useFonts as useRoboto,
   RobotoMono_700Bold,
 } from "@expo-google-fonts/roboto-mono";
+import { AuthenticationContextProvider } from "./src/services/authentication.context";
 import { Navigator } from "./src/navigators";
 import { theme } from "./src/theme";
 
@@ -26,7 +27,9 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Navigator />
+        <AuthenticationContextProvider>
+          <Navigator />
+        </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
