@@ -13,10 +13,13 @@ import {
   Address,
   Icon,
 } from "../theme/styles";
+import { FavouriteComponent } from "./favourite.component";
+
 export const VetInfoCardComponent = ({ vet }) => {
   const ratingArray = Array.from(new Array(Math.floor(vet.rating)));
   return (
     <VetCard elevation={5}>
+      <FavouriteComponent vet={vet} />
       <VetCardCover key={vet.name} source={{ uri: vet.photo }} />
       <Info>
         <Text variant="label">{vet.name}</Text>

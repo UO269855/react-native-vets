@@ -3,6 +3,8 @@ import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { colors } from "./colors";
 import { sizes } from "./sizes";
+import { TouchableOpacity } from "react-native";
+
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.caption};
@@ -48,4 +50,11 @@ export const VetCard = styled(Card)`
 export const VetCardCover = styled(Card.Cover)`
   background-color: ${(props) => props.theme.colors.card};
   padding: ${(props) => props.theme.space[3]};
+`;
+
+export const FavouriteButton = styled(TouchableOpacity)`
+  position: absolute;
+  top: ${(props) => props.theme.space[4]};
+  right: ${(props) => props.theme.space[4]};
+  z-index: 1;
 `;

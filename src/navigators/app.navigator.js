@@ -5,6 +5,7 @@ import { SettingsNavigator } from "./settings.navigator";
 import { VetsNavigator } from "./vets.navigator";
 import { LocationsContextProvider } from "../services/location.context";
 import { VetsContextProvider } from "../services/vets.context";
+import { FavouritesContextProvider } from "../data/favourites.context";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,13 +34,15 @@ const screenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => (
-  <LocationsContextProvider>
-    <VetsContextProvider>
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Vets" component={VetsNavigator} />
-        <Tab.Screen name="Map" component={MapScreen} />
-        <Tab.Screen name="Settings" component={SettingsNavigator} />
-      </Tab.Navigator>
-    </VetsContextProvider>
-  </LocationsContextProvider>
+  <FavouritesContextProvider>
+    <LocationsContextProvider>
+      <VetsContextProvider>
+        <Tab.Navigator screenOptions={screenOptions}>
+          <Tab.Screen name="Vets" component={VetsNavigator} />
+          <Tab.Screen name="Map" component={MapScreen} />
+          <Tab.Screen name="Settings" component={SettingsNavigator} />
+        </Tab.Navigator>
+      </VetsContextProvider>
+    </LocationsContextProvider>
+  </FavouritesContextProvider>
 );
